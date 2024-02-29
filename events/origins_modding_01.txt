@@ -1,0 +1,18 @@
+namespace = om
+
+country_event = {#Sets scope to country#
+	id = om.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_origin = origin_better_life
+	}
+
+	immediate = {
+		give_technology = { message = no tech = tech_terrestrial_sculpting }
+		#give_technology = { message = no tech = tech_climate_restoration }#
+	}
+	
+
+}

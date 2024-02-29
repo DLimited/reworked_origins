@@ -1,0 +1,51 @@
+generate_start_deposits_and_blockers = {
+	optimize_memory
+	if = {
+		limit = {
+			owner = {
+				has_origin = origin_better_life
+			}
+		}
+
+		create_life_seeded_planet = yes
+	}
+}
+
+generate_earth_deposits_and_blockers = {
+	optimize_memory
+	if = {
+		limit = {
+			owner = {
+				has_origin = origin_better_life
+			}
+		}
+
+		create_life_seeded_planet = yes
+	}
+
+}
+
+generate_home_planet_final_pass = {
+	optimize_memory
+	# Adjust life-seeded colonies
+	if = {
+		limit = {
+			owner = {
+				has_origin = origin_better_life
+			}
+		}
+
+		owner = {
+			# Nuke other colonies gained from advanced empire, etc
+			every_owned_planet = {
+				limit = { is_capital = no }
+				remove_all_buildings = yes
+				destroy_colony = yes
+			}
+			if = {
+				limit = { NOT = { has_valid_civic = civic_permanent_employment } }
+				change_dominant_species = { species = last_created_species change_all = yes }
+			}
+		}
+	}
+}
